@@ -1,0 +1,40 @@
+//Q.2 
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.randint(1, 101, 50)
+
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+
+axs[0, 0].plot(data, color='blue', marker='o', linestyle='-', linewidth=2)
+axs[0, 0].set_title('Line Chart', fontsize=16)
+axs[0, 0].set_xlabel('Index', fontsize=14)
+axs[0, 0].set_ylabel('Value', fontsize=14)
+
+axs[0, 1].scatter(range(len(data)), data, color='orange', s=50)
+axs[0, 1].set_title('Scatter Plot', fontsize=16)
+axs[0, 1].set_xlabel('Index', fontsize=14)
+axs[0, 1].set_ylabel('Value', fontsize=14)
+
+axs[1, 0].hist(data, bins=10, color='green', edgecolor='black', alpha=0.7)
+axs[1, 0].set_title('Histogram', fontsize=16)
+axs[1, 0].set_xlabel('Value', fontsize=14)
+axs[1, 0].set_ylabel('Frequency', fontsize=14)
+
+axs[1, 1].boxplot(data, patch_artist=True, boxprops=dict(facecolor='lightblue'))
+axs[1, 1].set_title('Box Plot', fontsize=16)
+axs[1, 1].set_ylabel('Value', fontsize=14)
+
+plt.tight_layout()
+plt.show()
+//Q.2 B 
+import matplotlib.pyplot as plt
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+marks = [85, 90, 75, 80, 95]
+
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140)
+plt.title('Marks Distribution by Subject', fontsize=16)
+plt.axis('equal')
+plt.show()

@@ -1,0 +1,10 @@
+//Q.2 
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+data = pd.read_csv('winequality-red.csv')
+X = data.iloc[:, :-1]
+scaler = StandardScaler()
+X_standardized = scaler.fit_transform(X)
+X_standardized_df = pd.DataFrame(X_standardized, columns=X.columns)
+print(X_standardized_df.head())

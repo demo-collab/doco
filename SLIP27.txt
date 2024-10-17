@@ -1,0 +1,21 @@
+//Q.2 
+//Code to Create the csv
+import pandas as pd
+
+data = {
+    'Country': ['USA', 'Canada', 'UK', 'USA', 'Canada', 'UK'],
+    'Purchased': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No']
+}
+
+df = pd.DataFrame(data)
+df.to_csv('data.csv', index=False)
+//Code for Encoding
+from sklearn.preprocessing import LabelEncoder
+
+df = pd.read_csv('data.csv')
+df_one_hot = pd.get_dummies(df, columns=['Country'], drop_first=True)
+
+label_encoder = LabelEncoder()
+df_one_hot['Purchased'] = label_encoder.fit_transform(df_one_hot['Purchased'])
+
+print(df_one_hot)

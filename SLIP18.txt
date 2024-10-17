@@ -1,0 +1,25 @@
+//Q.2 A 
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('iris.csv')
+plt.figure(figsize=(12, 8))
+features = ['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']
+for i, feature in enumerate(features, start=1):
+    plt.subplot(2, 2, i)
+    sns.boxplot(x='Species', y=feature, data=df)
+    plt.title(f'Box plot of {feature} by Species')
+
+plt.tight_layout()
+plt.show()
+//Q.2 B 
+import pandas as pd
+
+df = pd.read_csv('heights_weights.csv')
+print("First 5 rows:")
+print(df.head())
+print("\nLast 5 rows:")
+print(df.tail())
+print("\nRandom 10 rows:")
+print(df.sample(10))

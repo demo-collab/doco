@@ -1,0 +1,43 @@
+//Q.2 A 
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.randint(1, 100, size=50)
+
+plt.figure(figsize=(10, 5))
+plt.plot(data, color='blue', marker='o', linestyle='-', markersize=5, label='Line Chart')
+plt.title('Line Chart of Random Integers')
+plt.xlabel('Index')
+plt.ylabel('Random Integer Value')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+plt.figure(figsize=(10, 5))
+plt.scatter(range(50), data, color='red', s=50, label='Scatter Plot')
+plt.title('Scatter Plot of Random Integers')
+plt.xlabel('Index')
+plt.ylabel('Random Integer Value')
+plt.grid(True)
+plt.legend()
+plt.show()
+//Q.2 B 
+import matplotlib.pyplot as plt
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+marks = [85, 90, 75, 80, 95]
+
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['gold', 'lightcoral', 'lightskyblue', 'lightgreen', 'lightpink'])
+plt.title('Marks Distribution by Subject')
+plt.axis('equal')
+plt.show()
+//Q.3 C 
+import pandas as pd
+
+data = pd.read_csv('winequality-red.csv')
+description = data.describe()
+shape = data.shape
+first_three_rows = data.head(3)
+
+description, shape, first_three_rows

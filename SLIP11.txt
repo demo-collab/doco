@@ -1,0 +1,18 @@
+//Q.2 A
+import pandas as pd
+import matplotlib.pyplot as plt
+
+iris_data = pd.read_csv('iris.csv')
+species_counts = iris_data['species'].value_counts()
+
+plt.figure(figsize=(8, 6))
+plt.pie(species_counts, labels=species_counts.index, autopct='%1.1f%%', startangle=90)
+plt.title('Frequency of Iris Species')
+plt.axis('equal')
+plt.show()
+//Q.2 B 
+import pandas as pd
+
+wine_data = pd.read_csv('winequality-red.csv')
+stats = wine_data.describe()
+print(stats)

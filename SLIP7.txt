@@ -1,0 +1,15 @@
+//Q.2 a) b)
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+data = pd.read_csv('Data.csv')
+
+onehot_encoder = OneHotEncoder(sparse=False)
+country_encoded = onehot_encoder.fit_transform(data[['Country']])
+country_encoded_df = pd.DataFrame(country_encoded, columns=onehot_encoder.get_feature_names_out(['Country']))
+data = pd.concat([data, country_encoded_df], axis=1)
+
+label_encoder = LabelEncoder()
+data['Purchased'] = label_encoder.fit_transform(data['Purchased'])
+
+print(data)

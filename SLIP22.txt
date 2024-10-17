@@ -1,0 +1,19 @@
+//Q.2 A 
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+
+data = pd.read_csv('winequality-red.csv')
+
+min_max_scaler = MinMaxScaler()
+data_min_max_scaled = pd.DataFrame(min_max_scaler.fit_transform(data), columns=data.columns)
+
+standard_scaler = StandardScaler()
+data_standardized = pd.DataFrame(standard_scaler.fit_transform(data), columns=data.columns)
+
+normalizer = Normalizer()
+data_normalized = pd.DataFrame(normalizer.fit_transform(data), columns=data.columns)
+
+print("MinMax Scaled Data (first 5 rows):\n", data_min_max_scaled.head())
+print("\nStandardized Data (first 5 rows):\n", data_standardized.head())
+print("\nNormalized Data (first 5 rows):\n", data_normalized.head())
+

@@ -1,0 +1,49 @@
+//Q.2 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+random_array = np.random.randint(1, 100, size=50)
+
+plt.figure(figsize=(10, 6))
+plt.plot(random_array, color='blue', marker='o', linestyle='-', markersize=5)
+plt.title('Line Chart of Random Integers', fontsize=16)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.scatter(range(len(random_array)), random_array, color='green', alpha=0.7)
+plt.title('Scatter Plot of Random Integers', fontsize=16)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.hist(random_array, bins=10, color='orange', edgecolor='black', alpha=0.7)
+plt.title('Histogram of Random Integers', fontsize=16)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=random_array, color='purple')
+plt.title('Box Plot of Random Integers', fontsize=16)
+plt.ylabel('Value', fontsize=12)
+plt.grid()
+plt.show()
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+marks = [85, 90, 78, 88, 95]
+
+plt.figure(figsize=(10, 6))
+plt.bar(subjects, marks, color='cyan')
+plt.title('Marks Obtained in Subjects', fontsize=16)
+plt.xlabel('Subjects', fontsize=12)
+plt.ylabel('Marks', fontsize=12)
+plt.ylim(0, 100)
+plt.grid(axis='y')
+plt.show()

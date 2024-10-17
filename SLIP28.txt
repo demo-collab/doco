@@ -1,0 +1,37 @@
+//Q.2 
+import pandas as pd
+import numpy as np
+
+data = {
+    'name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Hannah', 'Ian', 'Jack'],
+    'age': [24, 30, 22, 35, 28, 40, 23, 29, 31, 26],
+    'percentage': [88.5, 76.0, 92.0, 65.5, 80.0, 70.5, 95.0, 90.0, 85.0, 78.0]
+}
+
+df = pd.DataFrame(data)
+print("Initial DataFrame:")
+print(df)
+
+print("\nShape of DataFrame:", df.shape)
+print("Number of Rows:", df.shape[0])
+print("Number of Columns:", df.shape[1])
+print("Data Types:")
+print(df.dtypes)
+print("Feature Names:", df.columns.tolist())
+print("Description of Data:")
+print(df.describe())
+
+print("\nBasic Statistical Details:")
+print(df.describe())
+
+duplicate_data = {
+    'name': ['Alice', 'Bob', 'Charlie', 'Alice', None],
+    'age': [24, 30, None, 24, None],
+    'percentage': [88.5, 76.0, 92.0, 88.5, None]
+}
+df_duplicates = pd.DataFrame(duplicate_data)
+df_duplicates['remarks'] = ""
+
+df_final = pd.concat([df, df_duplicates], ignore_index=True)
+print("\nFinal DataFrame with Duplicates and Missing Values:")
+print(df_final)

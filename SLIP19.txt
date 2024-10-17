@@ -1,0 +1,31 @@
+//Q.2 a) b) c)
+import pandas as pd
+import numpy as np
+
+data = {
+    'name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivan', 'Judy'],
+    'age': [23, 30, 22, 35, 29, 40, 25, 28, 32, 27],
+    'percentage': [88.5, 76.0, 91.2, 85.0, 78.0, 80.5, 89.0, 92.5, 77.5, 83.5]
+}
+df = pd.DataFrame(data)
+print("Original DataFrame:")
+print(df)
+
+print("\nShape:", df.shape)
+print("Number of Rows:", df.shape[0])
+print("Number of Columns:", df.shape[1])
+print("Data Types:\n", df.dtypes)
+print("Feature Names:", df.columns.tolist())
+print("Description:\n", df.describe())
+
+duplicates = {
+    'name': ['Alice', 'Bob', 'Charlie', None, 'Eve'],
+    'age': [23, 30, None, 35, 29],
+    'percentage': [88.5, 76.0, 91.2, 85.0, None]
+}
+duplicates_df = pd.DataFrame(duplicates)
+duplicates_df['remarks'] = ''
+df = pd.concat([df, duplicates_df], ignore_index=True)
+
+print("\nUpdated DataFrame with duplicates and missing values:")
+print(df)

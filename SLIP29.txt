@@ -1,0 +1,26 @@
+//Q.2 
+//Save the Dataset to a CSV File
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+data = {
+    'Country': ['USA', 'Canada', 'USA', 'UK', 'Canada', 'UK'],
+    'Purchased': ['Yes', 'No', 'No', 'Yes', 'Yes', 'No']
+}
+
+df = pd.DataFrame(data)
+df.to_csv('data.csv', index=False)
+//Apply One-Hot Encoding and Label Encoding
+
+
+df = pd.read_csv('data.csv')
+
+one_hot_encoder = OneHotEncoder(sparse=False)
+country_encoded = one_hot_encoder.fit_transform(df[['Country']])
+country_df = pd.DataFrame(country_encoded, columns=one_hot_encoder.get_feature_names_out(['Country']))
+
+label_encoder = LabelEncoder()
+df['Purchased'] = label_encoder.fit_transform(df['Purchased'])
+
+df_encoded = pd.concat([country_df, df[['Purchased']]], axis=1)
+df_encoded.to_csv('encoded_data.csv', index=False)

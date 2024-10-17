@@ -1,0 +1,21 @@
+//Q.2 A 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('iris.csv')
+species_count = df['species'].value_counts()
+species_count.plot(kind='bar', color=['skyblue', 'lightgreen', 'lightcoral'])
+
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.title('Frequency of Iris Species')
+plt.show()
+//Q.2 B 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('iris.csv')
+df.hist(column=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], by='species', figsize=(10, 8))
+
+plt.suptitle('Histograms of Iris Species')
+plt.show()

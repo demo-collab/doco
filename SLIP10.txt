@@ -1,0 +1,24 @@
+//Q.2 A 
+import pandas as pd
+
+data = pd.read_csv('socr_height_weight.csv')
+
+means = data.mean()
+medians = data.median()
+
+print("Column-wise Mean:")
+print(means)
+print("\nColumn-wise Median:")
+print(medians)
+//Q.2 B 
+import pandas as pd
+import itertools
+
+data = pd.read_csv('socr_height_weight.csv')
+points = data[['Height', 'Weight']].values
+
+manhattan_distance = 0
+for p1, p2 in itertools.combinations(points, 2):
+    manhattan_distance += abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
+
+print("Sum of Manhattan distances between all pairs of points:", manhattan_distance)

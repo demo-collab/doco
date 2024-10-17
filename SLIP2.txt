@@ -1,0 +1,38 @@
+//Q.2 A
+import pandas as pd
+
+data = pd.read_csv('Data.csv')
+mean_age = data['age'].mean()
+data['age'].fillna(mean_age, inplace=True)
+print(data)
+//Q.2 B 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('Data.csv')
+
+plt.figure(figsize=(10, 6))
+plt.plot(data['name'], data['salary'], marker='o')
+plt.title('Name vs Salary')
+plt.xlabel('Name')
+plt.ylabel('Salary')
+plt.xticks(rotation=45)
+plt.grid()
+plt.tight_layout()
+plt.show()
+//Q.2 C
+import pandas as pd
+
+data = pd.read_csv('heights_weights.csv')
+
+print("First 10 rows:")
+print(data.head(10))
+
+print("\nLast 10 rows:")
+print(data.tail(10))
+
+print("\nRandom 20 rows:")
+print(data.sample(20))
+
+print("\nShape of the dataset:")
+print(data.shape)

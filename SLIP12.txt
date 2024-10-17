@@ -1,0 +1,45 @@
+//Q.2 A 
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.randint(1, 100, 50)
+
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+
+axs[0, 0].plot(data, color='blue', marker='o', linestyle='-', linewidth=2)
+axs[0, 0].set_title('Line Chart')
+axs[0, 0].set_xlabel('Index')
+axs[0, 0].set_ylabel('Value')
+axs[0, 0].grid(True)
+
+axs[0, 1].scatter(range(len(data)), data, color='red')
+axs[0, 1].set_title('Scatter Plot')
+axs[0, 1].set_xlabel('Index')
+axs[0, 1].set_ylabel('Value')
+
+axs[1, 0].hist(data, bins=10, color='green', edgecolor='black')
+axs[1, 0].set_title('Histogram')
+axs[1, 0].set_xlabel('Value')
+axs[1, 0].set_ylabel('Frequency')
+
+axs[1, 1].boxplot(data, patch_artist=True, boxprops=dict(facecolor='orange'))
+axs[1, 1].set_title('Box Plot')
+axs[1, 1].set_ylabel('Value')
+
+plt.tight_layout()
+plt.show()
+//Q.2 B 
+import pandas as pd
+import numpy as np
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Hannah', 'Bob', 'Ivy'],
+    'Salary': [70000, 80000, np.nan, 60000, 75000, np.nan, 95000, 50000, 80000, 30000],
+    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'IT', 'HR', 'Finance', None, 'IT', 'Marketing']
+}
+
+df = pd.DataFrame(data)
+
+df = df.dropna()
+
+print(df)

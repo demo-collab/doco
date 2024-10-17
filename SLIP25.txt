@@ -1,0 +1,43 @@
+//Q.2 A 
+import numpy as np
+import matplotlib.pyplot as plt
+
+random_array = np.random.randint(1, 101, 50)
+
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+fig.suptitle('Random Integer Array Visualizations', fontsize=16)
+
+axs[0, 0].plot(random_array, marker='o', color='b', linestyle='-', linewidth=2, markersize=5)
+axs[0, 0].set_title('Line Chart')
+axs[0, 0].set_xlabel('Index')
+axs[0, 0].set_ylabel('Value')
+axs[0, 0].grid(True)
+
+axs[0, 1].scatter(range(len(random_array)), random_array, color='r', alpha=0.6)
+axs[0, 1].set_title('Scatter Plot')
+axs[0, 1].set_xlabel('Index')
+axs[0, 1].set_ylabel('Value')
+
+axs[1, 0].hist(random_array, bins=10, color='g', alpha=0.7)
+axs[1, 0].set_title('Histogram')
+axs[1, 0].set_xlabel('Value')
+axs[1, 0].set_ylabel('Frequency')
+
+axs[1, 1].boxplot(random_array, patch_artist=True, boxprops=dict(facecolor='orange'))
+axs[1, 1].set_title('Box Plot')
+axs[1, 1].set_ylabel('Value')
+
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.show()
+//Q.2 B 
+import matplotlib.pyplot as plt
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+marks = [85, 90, 75, 80, 95]
+
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140)
+plt.title('Marks Obtained in Subjects')
+plt.axis('equal')
+
+plt.show()
